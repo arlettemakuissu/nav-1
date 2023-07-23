@@ -14,17 +14,17 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sh 'echo $VBOXUSER_CREDENTIALS_PWD | sudo -S docker build . -t cv-arlette '
+			  sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo -S docker build . -t cv-arlette '
 			}
 		}
 	        stage('Docker-Hub-Login') {
 	            steps {
-	                sh 'echo $VBOXUSER_CREDENTIALS_PWD | sudo -S docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'   
+	                sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo -S ( echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin )'   
 	            }
 	        }
 	        stage("Push"){
 	            steps {
-	                sh 'echo $VBOXUSER_CREDENTIALS_PWD | sudo -S docker push briandwamba/cv-arlette'
+	                sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo -S docker push briandwamba/cv-arlette'
 	            }
 	        }
 	}	
