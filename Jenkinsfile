@@ -14,17 +14,17 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sh 'echo $LOCALHOST_CREDENTIALS_PSW | sudo docker build . -t cv-arlette  -S'
+			  sh ' sudo -u root docker build . -t cv-arlette '
 			}
 		}
 	        stage('Docker-Hub-Login') {
 	            steps {
-	                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'   
+	                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo -u root docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'   
 	            }
 	        }
 	        stage("Push"){
 	            steps {
-	                sh 'sudo docker push briandwamba/cv-arlette'
+	                sh 'sudo -u root docker push briandwamba/cv-arlette'
 	            }
 	        }
 	}	
