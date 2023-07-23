@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sudo docker build . -t cv-arlette
+			  sh 'sudo docker build . -t cv-arlette'
 			}
 		}
 	        stage('Docker-Hub-Login') {
