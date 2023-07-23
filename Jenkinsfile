@@ -1,10 +1,10 @@
 pipeline {
-  agent {label 'localhost'}
+	agent {label 'localhost'}
 
 	stages {
-		stage ("Helllo") {
+		stage ("Checkout") {
                   	steps {
-			  echo "coucou"
+			  git clone "coucou"
 			}
 		}
 	}	
