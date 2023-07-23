@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sh ' sudo -u root docker build . -t cv-arlette '
+			  sh 'echo virus | sudo  docker build . -t cv-arlette -S'
 			}
 		}
 	        stage('Docker-Hub-Login') {
