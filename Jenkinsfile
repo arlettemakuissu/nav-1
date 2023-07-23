@@ -3,7 +3,6 @@ pipeline {
 	
 	environment {
 	        DOCKERHUB_CREDENTIALS = credentials('docker-registry')
-	        LOCALHOST_CREDENTIALS = credentials('localhost')
     	}
 
 	stages {
