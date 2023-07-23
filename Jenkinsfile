@@ -3,6 +3,7 @@ pipeline {
 	
 	environment {
 	        DOCKERHUB_CREDENTIALS = credentials('docker-registry')
+	        LOCALHOST_CREDENTIALS = credentials('localhost')
     	}
 
 	stages {
@@ -13,7 +14,7 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sh 'sudo docker build . -t cv-arlette'
+			  sh 'echo $LOCALHOST_CREDENTIALS_PSW | sudo docker build . -t cv-arlette  -S'
 			}
 		}
 	        stage('Docker-Hub-Login') {
