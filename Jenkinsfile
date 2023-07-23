@@ -19,7 +19,8 @@ pipeline {
 		}
 	        stage('Docker-Hub-Login') {
 	            steps {
-	                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo -S$VBOXUSER_CREDENTIALS_PSW docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '   
+			sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo su'
+	                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '   
 	            }
 	        }
 	        stage("Push"){
