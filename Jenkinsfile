@@ -14,7 +14,7 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo -S docker build . -t cv-arlette '
+			  sh ' docker build . -t cv-arlette '
 			}
 		}
 	        stage('Docker-Hub-Login') {
