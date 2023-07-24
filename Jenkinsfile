@@ -14,7 +14,7 @@ pipeline {
 		}
 		stage ("Build-Docker-Image") {
                   	steps {
-			  sh 'docker build . -t cv-arlette '
+			  sh 'docker build . -t briandwamba/cv-arlette '
 			}
 		}
 	        stage('Docker-Hub-Login') {
