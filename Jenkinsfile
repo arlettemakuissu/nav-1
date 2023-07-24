@@ -32,10 +32,10 @@ pipeline {
 	post {
 		success {
 			agent { label : 'gabriella' }
-			steps {
-				sh 'docker stop cv-arlette'
-				sh 'docker run --rm --name cv-arlette -p 80:80 briandwamba/cv-arlette'
-			}
+			
+			sh 'docker stop cv-arlette'
+			sh 'docker run --rm --name cv-arlette -p 80:80 briandwamba/cv-arlette'
+			
 		}
 	}
 
