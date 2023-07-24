@@ -1,5 +1,5 @@
 pipeline {
-	agent {label 'localhost'}
+	agent any
 	
 	environment {
 	        DOCKERHUB_CREDENTIALS = credentials('docker-registry')
@@ -19,7 +19,7 @@ pipeline {
 		}
 	        stage('Docker-Hub-Login') {
 	            steps {
-			sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo -S echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '   
+			sh ' echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '   
 	            }
 	        }
 	        stage("Push"){
