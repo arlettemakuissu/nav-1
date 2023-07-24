@@ -24,9 +24,19 @@ pipeline {
 	        }
 	        stage("Push"){
 	            steps {
-	                sh 'echo $VBOXUSER_CREDENTIALS_PSW | sudo -S docker push briandwamba/cv-arlette'
+	                sh 'docker push briandwamba/cv-arlette'
 	            }
 	        }
 	}	
+
+	post {
+		success {
+			agent { label : 'gabriella' }
+			steps {
+				sh 'docker stop cv-arlette'
+				sh 'docker run --rm --name cv-arlette -p 80:80 briandwamba/cv-arlette'
+			}
+		}
+	}
 
 }
