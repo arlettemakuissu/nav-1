@@ -17,6 +17,7 @@ pipeline {
 			agent {label 'localhost'}
                   	steps {
 			  sh 'ls'
+			  sh ' docker rmi briandwamba/cv-arlette || true'
 			  sh 'docker build . -t briandwamba/cv-arlette '
 			}
 		}
@@ -36,6 +37,7 @@ pipeline {
 			agent {label 'gabriella'}
 	            	steps {
 	                	sh 'docker stop cv-arlette || true'
+				sh ' docker rmi briandwamba/cv-arlette || true'
 				sh 'docker run --rm --name cv-arlette -d -p 80:80 briandwamba/cv-arlette'
 	            	}
 	        }
