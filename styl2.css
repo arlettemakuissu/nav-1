@@ -1,0 +1,44 @@
+body {
+  background-image: url('./images/fond.jpg');
+
+  background-position: center;
+  background-repeat: no repeat;
+  background-attachment: fixed;
+}
+  #profil {
+    width: 180px;
+    text-align:center;
+    margin: auto;
+    border: 1px solid transparent;
+    border-image: url(border.png) 30 ruond;
+    border-radius: 50%;
+
+}
+   
+   #iconefacebook {
+       width: 40px;
+       
+   }
+   #iconelinkind {
+    width: 40px;
+
+   }
+
+   #iconeinstagrame {
+    width: 40px;
+   }
+   #iconegithup {
+    width: 40px;
+   }
+   
+   .paddingX10 {
+    padding-left:10px;
+    padding-right:10px;
+  } 
+   body {
+     color: white;
+   }
+
+
+
+
