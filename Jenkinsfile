@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent {label 'localhost'}
 	
 	environment {
 	        DOCKERHUB_CREDENTIALS = credentials('docker-registry')
