@@ -24,17 +24,17 @@ pipeline {
 		        steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'   
 		        }
-	        }
+	        }/*
 	        stage("Push"){
 			agent {label 'localhost'}
 	            	steps {
 	                	sh 'docker push briandwamba/cv-arlette'
 	            	}
-	        }
+	        }*/
 		stage("Deploy"){
 			agent {label 'gabriella'}
 	            	steps {
-	                	sh 'docker stop cv-arlette'
+	                	sh 'docker stop cv-arlette || true'
 				sh 'docker run --rm --name cv-arlette -p 80:80 briandwamba/cv-arlette'
 	            	}
 	        }
