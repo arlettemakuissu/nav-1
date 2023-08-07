@@ -16,8 +16,8 @@ pipeline {
 		stage ("Build-Docker-Image") {
 			agent {label 'localhost'}
                   	steps {
-			  sh 'ls'
-			  sh ' docker rmi briandwamba/cv-arlette || true'
+			  sh 'ls images'
+			  sh 'docker rmi briandwamba/cv-arlette || true'
 			  sh 'docker build . -t briandwamba/cv-arlette '
 			}
 		}
